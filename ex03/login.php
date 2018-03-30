@@ -8,7 +8,7 @@
 
 include "auth.php";
 
-if (empty($_GET['login']) && empty($_GET['passwd'])) {
+if (!empty($_GET['login']) && !empty($_GET['passwd'])) {
 
     session_start();
 

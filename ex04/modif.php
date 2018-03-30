@@ -16,12 +16,15 @@ if (!empty($_POST['login']) && !empty($_POST['oldpw']) && !empty($_POST['newpw']
         exit();
     }
 
+    echo "in\n";
+
     foreach ($arr as $key=>$val){
         if (!empty($val['login']) && $val['login'] === trim($_POST['login']) &&
             !empty($val['passwd']) && $val['passwd'] === hash("whirlpool", $_POST['oldpw'])) {
 
             $arr[$key]['passwd'] = hash("whirlpool", $_POST['newpw']);
             file_put_contents("../private/passwd", serialize($arr));
+            header("location: index.html");
             echo "OK\n";
             exit();
         }

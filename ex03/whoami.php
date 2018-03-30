@@ -8,7 +8,7 @@
 
 session_start();
 
-if (empty($_SESSION['loggued_on_user'])) {
+if (!empty($_SESSION['loggued_on_user'])) {
     echo $_SESSION['loggued_on_user']."\n";
 } else
     echo "ERROR\n";

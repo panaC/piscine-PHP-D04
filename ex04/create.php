@@ -25,6 +25,7 @@ if (!empty($_POST['login']) && !empty($_POST['passwd']) && !empty($_POST['submit
 
     $arr[] = array("login"=>trim($_POST['login']), "passwd"=>hash("whirlpool", $_POST['passwd']));
     file_put_contents("../private/passwd", serialize($arr));
+    header("location: index.html");
     echo "OK\n";
 } else {
     echo "ERROR\n";
